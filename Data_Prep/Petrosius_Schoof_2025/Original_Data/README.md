@@ -3,3 +3,5 @@ Download the following file into this directory before running `Petrosius_prep_f
 1. Navigate to <link to our uploaded searched data>
 2. Download `report.parquet`
 3. Move `report.parquet` into this directory
+
+Run `Petrosius_prep_for_NIFty.py` to prep the data.

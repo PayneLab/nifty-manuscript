@@ -5,3 +5,5 @@ Download the following files into this directory before running `Khan_prep_for_N
 3. Navigate to `https://drive.google.com/drive/folders/1LGgUilllIlUU8BvM8Tj_IUMsep5_xkeX `
 4. Download `Protein_cellTypeLabels_postAlignment.txt`
 3. Move `npop5_proteinMatrix_Imputed.BCmTRAQ.txt`, `npop5_proteinMatrix_NoImp.BCmTRAQ.txt`, and `Protein_cellTypeLabels_postAlignment.txt` into this directory
+
+Run `Khan_prep_for_NIFty.py` to prep the data.
