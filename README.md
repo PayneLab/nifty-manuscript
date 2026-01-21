@@ -1,6 +1,8 @@
 # nifty-manuscript
 Contains the code and figures for the manuscript associated with NIFty.
 
+Download or clone the repository before continuing.
+
 
 ## Data Prep
 To download and prepare the manuscript datasets for NIFty, do the following:
@@ -20,7 +22,7 @@ To download and prepare the manuscript datasets for NIFty, do the following:
 
 
 ## Testing
-If you have not already, follow the instruction in the `Data_Prep` section before continuing.
+If you have not already, follow the instructions in the `Data Prep` section before continuing.
 
 ### Incomplete Data
 To recreate the results for testing on incomplete data, do the following:
@@ -64,3 +66,21 @@ To recreate the results for testing on multiclass data, do the following:
 4. Add the absolute path to the directory containing `nifty.py` and associated files to line 18 in `multiclass_wrapper.py`.
 5. Run `multiclass_wrapper.py`.
 6. Run `combine_predictions.py` (this will replace `combined_predictions.tsv` with your results).
+
+## Figures and Tables
+You do **not** need to have completed the `Data Prep` and `Testing` sections before continuing.
+
+To recreate Figures 2, 3, and 5 and Table 1 found in the manuscript, do the following:
+
+1. Ensure you have the following R packages installed in your environment:
+    * tidyverse
+    * this.path
+    * caret
+    * ggtext
+2. Navigate to `Figures_and_Tables`. 
+3. Run the following R files:
+    * `generate_Figure_2.R` (recreates `Fig2_leduc_imputed.png`, `Fig2_leduc_original.png`, `Fig2_montalvo_imputed.png`, `Fig2_montalvo_original.png`)
+    * `generate_Table_1.R` (recreates `Table1.tsv`)
+    * *Figure 3 Upcoming*
+    * `generate_Figure_5.R` (recreates `Fig5.png`)
+
