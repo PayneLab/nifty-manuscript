@@ -28,8 +28,8 @@ To recreate the results for testing on incomplete data, do the following:
 1. Ensure you have the following python packages installed in your environment:
     * pandas
     * numpy
-2. Download NIFty from <link to NIFy repo>.
-2. Navigate to `Testing/No_Imputation/` and run the following python files:
+2. Download NIFty from <link to NIFy repo> and install the dependencies as described in the documentation.
+3. Navigate to `Testing/No_Imputation/` and run the following python files:
     * `Ai_imputed.py`
     * `Ai_unimputed.py`
     * `Furtwaengler_imputed_HSCxEarlyEryth.py`
@@ -44,8 +44,23 @@ To recreate the results for testing on incomplete data, do the following:
     * `Montalvo_unimputed.py`
     * `Petrosius_imputed.py`
     * `Petrosius_unimputed.py`
-3. For each configuration file created (found in `Testing/No_Imputation/Test_{Dataset Identifier}/Config_Files`), run NIFty using the following command:
+4. For each configuration file created (found in `Testing/No_Imputation/Test_{Dataset Identifier}/Config_Files`), run NIFty using the following command:
 
     `python <path_to_local_NIFty_download>/nifty.py -c <path to config file>`
 
-4. Run `combine_results.py`.
+5. Run `combine_results.py` (this will replace `combined_results.tsv` with your results).
+
+### Batch Effects
+Upcoming
+
+### Multiclass
+To recreate the results for testing on multiclass data, do the following:
+
+1. Ensure you have the following python packages installed in your environment:
+    * pandas
+    * scikit-learn
+2. Download NIFty from <link to NIFy repo> and install the dependencies as described in the documentation.
+3. Navigate to `Testing/Multiclass/`.
+4. Add the absolute path to the directory containing `nifty.py` and associated files to line 18 in `multiclass_wrapper.py`.
+5. Run `multiclass_wrapper.py`.
+6. Run `combine_predictions.py` (this will replace `combined_predictions.tsv` with your results).
