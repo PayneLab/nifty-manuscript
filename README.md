@@ -44,5 +44,7 @@ To recreate the results for testing on incomplete data, do the following:
     * Petrosius_imputed.py
     * Petrosius_unimputed.py
 3. For each configuration file created (found in `Testing/No_Imputation/Test_{Dataset Identifier}/Config_Files`), run NIFty using the following command:
+
     `python <path_to_local_NIFty_download>/nifty.py -c <path to config file>`
+    
 4. Run `combine_results.py`.
