@@ -28,101 +28,132 @@ leduc_unimputed_data <- data %>%
 
 
 
-# plot hard dataset
-ggplot(data = montalvo_imputed_data, mapping = aes(x = `Samples per Class`, y = `Validation Accuracy`)) + 
-  geom_jitter(position = position_jitter(width = 0.2), alpha = 0.3, color = "red", size = 2) + 
-  stat_summary(fun.data = "mean_sdl", # Calculates mean and standard deviation
-               fun.args = list(mult = 1), # For 1 standard deviation
-               geom = "errorbar", # Draws the error bars
-               width = 0.2, 
-               size = 1) + # Adjust the width of the error bars
-  stat_summary(fun = "mean", # Calculates the mean
-               geom = "point", # Draws a point at the mean
-               size = 4, # Adjust the size of the point
-               color = "black") + # Set the color of the mean point
-  # Add a line connecting the means
-  stat_summary(fun = "mean",
-               geom = "line",
-               aes(group = 1), # Ensures a single line is drawn across all categories
-               color = "black", 
-               size = 1) +
-  theme_bw(base_size = 18) + 
+
+
+# plot Montalvo et al
+plot_data_montalvo <- full_join(montalvo_imputed_data, montalvo_unimputed_data) %>%
+  mutate(
+    Point_Color = ifelse(`Data Type` == "Imputed", "#FDC086", "#80CDC1"),
+    Summary_Color = ifelse(`Data Type` == "Imputed", "#BF5B17", "#018571")
+  )
+
+pd <- position_dodge(width = 0.7)
+ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy`)) +
+  
+  # Points
+  geom_jitter(
+    aes(color = Point_Color, group = `Data Type`),
+    position = position_jitterdodge(jitter.width = 0.5, dodge.width = 0.7),
+    alpha = 0.5,
+    size = 2
+  ) +
+  
+  # Error bars
+  stat_summary(
+    aes(color = Summary_Color, group = `Data Type`),
+    fun.data = mean_sdl,
+    fun.args = list(mult = 1),
+    geom = "errorbar",
+    width = 0.2,
+    size = 1,
+    position = pd
+  ) +
+  
+  # Mean points
+  stat_summary(
+    aes(color = Summary_Color, group = `Data Type`),
+    fun = mean,
+    geom = "point",
+    size = 4,
+    position = pd
+  ) +
+  
+  # Mean lines
+  stat_summary(
+    aes(color = Summary_Color, group = `Data Type`),
+    fun = mean,
+    geom = "line",
+    size = 1,
+    position = pd
+  ) +
+  
+  # Identity scale (use the colors as-is)
+  scale_color_identity(
+    name = "Data Type", 
+    breaks = c("#BF5B17", "#018571"), 
+    labels = c("Imputed", "Unimputed"), 
+    guide = "legend"
+  ) +
+  
+  theme_bw(base_size = 18) +
   ylim(c(0, 1.05)) + 
-  labs(x = "Total Samples per Class\n(before Splitting for FS [30%] and Train/Test [70%])", y = "Validation Accuracy", title = "Imputed Dataset")
-ggsave("Fig2_montalvo_imputed.png", width = 8, height = 6, units = "in", dpi = 600)
+  labs(x = "Total Samples per Class\n(before Splitting for FS [30%] and Train/Test [70%])", 
+       y = "Validation Accuracy")
+ggsave("Fig3_montalvo.png", width = 10, height = 6, units = "in", dpi = 600)
 
 
 
-ggplot(data = montalvo_unimputed_data, mapping = aes(x = `Samples per Class`, y = `Validation Accuracy`)) + 
-  geom_jitter(position = position_jitter(width = 0.2), alpha = 0.3, color = "red", size = 2) + 
-  stat_summary(fun.data = "mean_sdl", # Calculates mean and standard deviation
-               fun.args = list(mult = 1), # For 1 standard deviation
-               geom = "errorbar", # Draws the error bars
-               width = 0.2, 
-               size = 1) + # Adjust the width of the error bars
-  stat_summary(fun = "mean", # Calculates the mean
-               geom = "point", # Draws a point at the mean
-               size = 4, # Adjust the size of the point
-               color = "black") + # Set the color of the mean point
-  # Add a line connecting the means
-  stat_summary(fun = "mean",
-               geom = "line",
-               aes(group = 1), # Ensures a single line is drawn across all categories
-               color = "black", 
-               size = 1) +
-  theme_bw(base_size = 18) + 
+
+# plot leduc et al
+plot_data_leduc <- full_join(leduc_imputed_data, leduc_unimputed_data) %>%
+  mutate(
+    Point_Color = ifelse(`Data Type` == "Imputed", "#FDC086", "#80CDC1"),
+    Summary_Color = ifelse(`Data Type` == "Imputed", "#BF5B17", "#018571")
+  )
+
+pd <- position_dodge(width = 0.7)
+ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`)) +
+  
+  # Points
+  geom_jitter(
+    aes(color = Point_Color, group = `Data Type`),
+    position = position_jitterdodge(jitter.width = 0.5, dodge.width = 0.7),
+    alpha = 0.5,
+    size = 2
+  ) +
+  
+  # Error bars
+  stat_summary(
+    aes(color = Summary_Color, group = `Data Type`),
+    fun.data = mean_sdl,
+    fun.args = list(mult = 1),
+    geom = "errorbar",
+    width = 0.2,
+    size = 1,
+    position = pd
+  ) +
+  
+  # Mean points
+  stat_summary(
+    aes(color = Summary_Color, group = `Data Type`),
+    fun = mean,
+    geom = "point",
+    size = 4,
+    position = pd
+  ) +
+  
+  # Mean lines
+  stat_summary(
+    aes(color = Summary_Color, group = `Data Type`),
+    fun = mean,
+    geom = "line",
+    size = 1,
+    position = pd
+  ) +
+  
+  # Identity scale (use the colors as-is)
+  scale_color_identity(
+    name = "Data Type", 
+    breaks = c("#BF5B17", "#018571"), 
+    labels = c("Imputed", "Unimputed"), 
+    guide = "legend"
+  ) +
+  
+  theme_bw(base_size = 18) +
   ylim(c(0, 1.05)) + 
-  labs(x = "Total Samples per Class\n(before Splitting for FS [30%] and Train/Test [70%])", y = "Validation Accuracy", title = "Original Dataset")
-ggsave("Fig2_montalvo_original.png", width = 8, height = 6, units = "in", dpi = 600)
-
-
-
-# plot easy dataset
-ggplot(data = leduc_imputed_data, mapping = aes(x = `Samples per Class`, y = `Validation Accuracy`)) + 
-  geom_jitter(position = position_jitter(width = 0.2), alpha = 0.3, color = "red", size = 2) + 
-  stat_summary(fun.data = "mean_sdl", # Calculates mean and standard deviation
-               fun.args = list(mult = 1), # For 1 standard deviation
-               geom = "errorbar", # Draws the error bars
-               width = 0.2, 
-               size = 1) + # Adjust the width of the error bars
-  stat_summary(fun = "mean", # Calculates the mean
-               geom = "point", # Draws a point at the mean
-               size = 4, # Adjust the size of the point
-               color = "black") + # Set the color of the mean point
-  # Add a line connecting the means
-  stat_summary(fun = "mean",
-               geom = "line",
-               aes(group = 1), # Ensures a single line is drawn across all categories
-               color = "black", 
-               size = 1) +
-  theme_bw(base_size = 18) + 
-  ylim(c(0, 1.05)) + 
-  labs(x = "Total Samples per Class\n(before Splitting for FS [30%] and Train/Test [70%])", y = "Validation Accuracy", title = "Imputed Dataset")
-ggsave("Fig2_leduc_imputed.png", width = 8, height = 6, units = "in", dpi = 600)
-
-
-
-ggplot(data = leduc_unimputed_data, mapping = aes(x = `Samples per Class`, y = `Validation Accuracy`)) + 
-  geom_jitter(position = position_jitter(width = 0.2), alpha = 0.3, color = "red", size = 2) + 
-  stat_summary(fun.data = "mean_sdl", # Calculates mean and standard deviation
-               fun.args = list(mult = 1), # For 1 standard deviation
-               geom = "errorbar", # Draws the error bars
-               width = 0.2, 
-               size = 1) + # Adjust the width of the error bars
-  stat_summary(fun = "mean", # Calculates the mean
-               geom = "point", # Draws a point at the mean
-               size = 4, # Adjust the size of the point
-               color = "black") + # Set the color of the mean point
-  # Add a line connecting the means
-  stat_summary(fun = "mean",
-               geom = "line",
-               aes(group = 1), # Ensures a single line is drawn across all categories
-               color = "black", 
-               size = 1) +
-  theme_bw(base_size = 18) + 
-  ylim(c(0, 1.05)) + 
-  labs(x = "Total Samples per Class\n(before Splitting for FS [30%] and Train/Test [70%])", y = "Validation Accuracy", title = "Original Dataset")
-ggsave("Fig2_leduc_original.png", width = 8, height = 6, units = "in", dpi = 600)
+  labs(x = "Total Samples per Class\n(before Splitting for FS [30%] and Train/Test [70%])", 
+       y = "Validation Accuracy")
+ggsave("Fig3_leduc.png", width = 10, height = 6, units = "in", dpi = 600)
 
 
 
