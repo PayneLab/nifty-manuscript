@@ -57,7 +57,7 @@ def filter_proteins_by_class(quant_df, class_labels, fraction_na, proteins_to_ke
 unimputed_path = os.path.join(script_directory, "Original_Data", "report.parquet")
 unimputed = pd.read_parquet(unimputed_path)
 unimputed = unimputed[~unimputed['Run'].str.contains("_human_CD34_")]  # not enough cells of CD34, remove them
-unimputed = unimputed[unimputed['Lib.PG.Q.Value'] < 0.01]
+unimputed = unimputed[unimputed['Global.PG.Q.Value'] < 0.01]
 unimputed = unimputed[~unimputed['Protein.Group'].str.contains("contam")]
 unimputed = unimputed[['Run', 'Protein.Group', 'PG.MaxLFQ']].drop_duplicates().pivot(index='Run', columns='Protein.Group', values='PG.MaxLFQ')
 unimputed.drop(columns=[''], inplace=True)
