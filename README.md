@@ -68,7 +68,7 @@ To recreate the results for testing on multiclass data, do the following:
 6. Run `combine_predictions.py` (this will replace `combined_predictions.tsv` with your results).
 
 ## Figures and Tables
-You do **not** need to have completed the `Data Prep` and `Testing` sections before continuing.
+You need to have completed the `Data Prep` and `Testing` sections before continuing.
 
 To recreate Figures 3, 4, and 6 and Table 1 found in the manuscript, do the following:
 
