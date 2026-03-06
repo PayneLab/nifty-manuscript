@@ -43,5 +43,5 @@ ggplot(data = cm_long, aes(x = Prediction, y = Reference, fill = mean_percent)) 
   labs(x = "Predicted Label", y = "Actual Label", fill = "Mean %\n") +
   theme_bw()
 
-ggsave("Fig5.png", width = 5, height = 4, units = "in", dpi = 600)
+ggsave("Fig6.png", width = 5, height = 4, units = "in", dpi = 600)
 
