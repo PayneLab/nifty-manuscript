@@ -70,7 +70,7 @@ To recreate the results for testing on multiclass data, do the following:
 ## Figures and Tables
 You do **not** need to have completed the `Data Prep` and `Testing` sections before continuing.
 
-To recreate Figures 2, 3, and 5 and Table 1 found in the manuscript, do the following:
+To recreate Figures 3, 4, and 6 and Table 1 found in the manuscript, do the following:
 
 1. Ensure you have the following R packages installed in your environment:
     * tidyverse
@@ -79,8 +79,8 @@ To recreate Figures 2, 3, and 5 and Table 1 found in the manuscript, do the foll
     * ggtext
 2. Navigate to `Figures_and_Tables`. 
 3. Run the following R files:
-    * `generate_Figure_2.R` (recreates `Fig2_leduc_imputed.png`, `Fig2_leduc_original.png`, `Fig2_montalvo_imputed.png`, `Fig2_montalvo_original.png`)
+    * `generate_Figure_3.R` (recreates `Fig3_Leduc.png`, `Fig3_Montalvo.png`)
     * `generate_Table_1.R` (recreates `Table1.tsv`)
-    * *Figure 3 Upcoming*
-    * `generate_Figure_5.R` (recreates `Fig5.png`)
+    * *Figure 4 Upcoming*
+    * `generate_Figure_6.R` (recreates `Fig6.png`)
 
