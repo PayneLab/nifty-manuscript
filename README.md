@@ -1,5 +1,5 @@
 # nifty-manuscript
-Contains the code and figures for the manuscript associated with NIFty.
+Contains the code and figures for the manuscript associated with NIFty: [Classification with Missing Data - A *NIFty* Pipeline for Single-Cell Proteomics](https://doi.org/10.64898/2026.03.06.710179)
 
 Download or clone the repository before continuing.
 
