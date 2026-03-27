@@ -37,7 +37,6 @@ plot_data_montalvo <- full_join(montalvo_imputed_data, montalvo_unimputed_data) 
     Summary_Color = ifelse(`Data Type` == "Imputed", "#BF5B17", "#018571")
   )
 
-pd <- position_dodge(width = 0.7)
 ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy`)) +
   
   # Points
@@ -55,8 +54,7 @@ ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy
     fun.args = list(mult = 1),
     geom = "errorbar",
     width = 0.2,
-    size = 1,
-    position = pd
+    size = 1
   ) +
   
   # Mean points
@@ -64,8 +62,7 @@ ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy
     aes(color = Summary_Color, group = `Data Type`),
     fun = mean,
     geom = "point",
-    size = 4,
-    position = pd
+    size = 4
   ) +
   
   # Mean lines
@@ -73,8 +70,7 @@ ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy
     aes(color = Summary_Color, group = `Data Type`),
     fun = mean,
     geom = "line",
-    size = 1,
-    position = pd
+    size = 1
   ) +
   
   # Identity scale (use the colors as-is)
@@ -101,7 +97,6 @@ plot_data_leduc <- full_join(leduc_imputed_data, leduc_unimputed_data) %>%
     Summary_Color = ifelse(`Data Type` == "Imputed", "#BF5B17", "#018571")
   )
 
-pd <- position_dodge(width = 0.7)
 ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`)) +
   
   # Points
@@ -119,8 +114,7 @@ ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`))
     fun.args = list(mult = 1),
     geom = "errorbar",
     width = 0.2,
-    size = 1,
-    position = pd
+    size = 1
   ) +
   
   # Mean points
@@ -128,8 +122,7 @@ ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`))
     aes(color = Summary_Color, group = `Data Type`),
     fun = mean,
     geom = "point",
-    size = 4,
-    position = pd
+    size = 4
   ) +
   
   # Mean lines
@@ -137,8 +130,7 @@ ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`))
     aes(color = Summary_Color, group = `Data Type`),
     fun = mean,
     geom = "line",
-    size = 1,
-    position = pd
+    size = 1
   ) +
   
   # Identity scale (use the colors as-is)
