@@ -236,20 +236,20 @@ for i in range(100):
 
     pairs = list(zip(protein1, protein2))
     # print(len(pairs))
-    pairs = set(pairs)
+    pairs = list(set(pairs))
     # print(len(pairs))
 
-    pairs = pd.DataFrame(pairs, columns=['Protein1', 'Protein2'])
+    pairs_df = pd.DataFrame(pairs, columns=['Protein1', 'Protein2'])
     # print(pairs)
 
 
     # reformat train_test quant table into binary table
     data_transformer = DataTransformer()
-    train_test_quant = data_transformer.add_missing_proteins(feature_df=pairs, quant_df=train_test_quant)
+    train_test_quant = data_transformer.add_missing_proteins(feature_df=pairs_df, quant_df=train_test_quant)
     # print(train_test_quant)
 
-    train_test_bool_dict = data_transformer.transform_df(feature_df=pairs, quant_df=train_test_quant)
-    train_test_matrix = data_transformer.prep_vectorized_pairs_for_scikitlearn(feature_df=pairs, bool_dict=train_test_bool_dict)
+    train_test_bool_matrix = data_transformer.vectorize_all_pairs(pairs, train_test_quant)
+    train_test_matrix = data_transformer.prep_vectorized_pairs_for_scikitlearn(pairs, train_test_bool_matrix)
     train_test_matrix.index = train_test_quant.index.copy()
     # print(train_test_matrix)
 
@@ -296,11 +296,11 @@ for i in range(100):
 
 
     # reformat train_test quant table into binary table
-    validate_quant = data_transformer.add_missing_proteins(feature_df=pairs, quant_df=validate_quant)
+    validate_quant = data_transformer.add_missing_proteins(feature_df=pairs_df, quant_df=validate_quant)
     # print(validate_quant)
 
-    validate_bool_dict = data_transformer.transform_df(feature_df=pairs, quant_df=validate_quant)
-    validate_matrix = data_transformer.prep_vectorized_pairs_for_scikitlearn(feature_df=pairs, bool_dict=validate_bool_dict)
+    validate_bool_matrix = data_transformer.vectorize_all_pairs(pairs, validate_quant)
+    validate_matrix = data_transformer.prep_vectorized_pairs_for_scikitlearn(pairs, validate_bool_matrix)
     validate_matrix.index = validate_quant.index.copy()
     # print(validate_matrix)
 
