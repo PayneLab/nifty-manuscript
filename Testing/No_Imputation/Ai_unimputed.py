@@ -54,17 +54,13 @@ NIFty_output_dir = os.path.join(main_output_dir, "NIFty_Output")
 if not os.path.exists(NIFty_output_dir):
     os.mkdir(NIFty_output_dir)
 
-job_output_dir = os.path.join(main_output_dir, "Job_Scripts")
-if not os.path.exists(job_output_dir):
-    os.mkdir(job_output_dir)
-
 
 
 # for each split, for each test
 for split in splits:
     for i in range(tests):
         
-        identifier = f"Ai_Unimputed_Split{split}_Test{test + 1}"
+        identifier = f"Ai_Unimputed_Split{split}_Test{i + 1}"
         day0_samples_updated = day0_samples.copy()
         day21_samples_updated = day21_samples.copy()
 

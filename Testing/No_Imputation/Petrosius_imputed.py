@@ -54,17 +54,13 @@ NIFty_output_dir = os.path.join(main_output_dir, "NIFty_Output")
 if not os.path.exists(NIFty_output_dir):
     os.mkdir(NIFty_output_dir)
 
-job_output_dir = os.path.join(main_output_dir, "Job_Scripts")
-if not os.path.exists(job_output_dir):
-    os.mkdir(job_output_dir)
-
 
 
 # for each split, for each test
 for split in splits:
     for i in range(tests):
         
-        identifier = f"Petrosius_Imputed_Split{split}_Test{test + 1}"
+        identifier = f"Petrosius_Imputed_Split{split}_Test{i + 1}"
         HEK_samples_updated = HEK_samples.copy()
         u937_samples_updated = u937_samples.copy()
 

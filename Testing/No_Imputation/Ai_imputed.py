@@ -60,7 +60,7 @@ if not os.path.exists(NIFty_output_dir):
 for split in splits:
     for i in range(tests):
 
-        identifier = f"Ai_Imputed_Split{split}_Test{test + 1}"
+        identifier = f"Ai_Imputed_Split{split}_Test{i + 1}"
         day0_samples_updated = day0_samples.copy()
         day21_samples_updated = day21_samples.copy()
 

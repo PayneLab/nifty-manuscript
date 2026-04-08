@@ -51,17 +51,13 @@ NIFty_output_dir = os.path.join(main_output_dir, "NIFty_Output")
 if not os.path.exists(NIFty_output_dir):
     os.mkdir(NIFty_output_dir)
 
-job_output_dir = os.path.join(main_output_dir, "Job_Scripts")
-if not os.path.exists(job_output_dir):
-    os.mkdir(job_output_dir)
-
 
 
 # for each split, for each test
 for split in splits:
     for i in range(tests):
         
-        identifier = f"Saddic_Unimputed_SMC_Split{split}_Test{test + 1}"
+        identifier = f"Saddic_Unimputed_SMC_Split{split}_Test{i + 1}"
         wt_samples_updated = wt_samples.copy()
         mfn_samples_updated = mfn_samples.copy()
 
