@@ -11,8 +11,8 @@ script_path = os.path.abspath(__file__)
 script_directory = os.path.dirname(script_path)
 
 # input files
-quant_file = os.path.join(script_directory, os.pardir, os.pardir, 'Data_Prep', 'Khan_Elcheikhali_Slavov_2024', 'NIFty_Ready_Data', 'quant_imputed_wt.tsv')
-quant_file = os.path.join(script_directory, os.pardir, os.pardir, 'Data_Prep', 'Khan_Elcheikhali_Slavov_2024', 'NIFty_Ready_Data', 'meta_wt.tsv')
+quant_file = os.path.join(script_directory, os.pardir, os.pardir, 'Data_Prep', 'Saddic_Parker_2025', 'NIFty_Ready_Data', 'quant_imputed_wt.tsv')
+quant_file = os.path.join(script_directory, os.pardir, os.pardir, 'Data_Prep', 'Saddic_Parker_2025', 'NIFty_Ready_Data', 'meta_wt.tsv')
 
 quant_table = pd.read_csv(quant_file, sep='\t')
 meta_table = pd.read_csv(meta_file, sep='\t')
