@@ -38,7 +38,6 @@ plot_data_montalvo <- full_join(montalvo_imputed_data, montalvo_unimputed_data) 
   )
 
 ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy`)) +
-  
   # Points
   geom_jitter(
     aes(color = Point_Color, group = `Data Type`),
@@ -46,7 +45,6 @@ ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy
     alpha = 0.5,
     size = 2
   ) +
-  
   # Error bars
   stat_summary(
     aes(color = Summary_Color, group = `Data Type`),
@@ -56,7 +54,6 @@ ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy
     width = 0.2,
     size = 1
   ) +
-  
   # Mean points
   stat_summary(
     aes(color = Summary_Color, group = `Data Type`),
@@ -64,7 +61,6 @@ ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy
     geom = "point",
     size = 4
   ) +
-  
   # Mean lines
   stat_summary(
     aes(color = Summary_Color, group = `Data Type`),
@@ -72,15 +68,13 @@ ggplot(plot_data_montalvo, aes(x = `Samples per Class`, y = `Validation Accuracy
     geom = "line",
     size = 1
   ) +
-  
-  # Identity scale (use the colors as-is)
+  # Identity scale
   scale_color_identity(
     name = "Data Type", 
     breaks = c("#BF5B17", "#018571"), 
     labels = c("Imputed", "Unimputed"), 
     guide = "legend"
   ) +
-  
   theme_bw(base_size = 18) +
   ylim(c(0, 1.05)) + 
   labs(x = "Total Samples per Class\n(before Splitting for FS [30%] and Train/Test [70%])", 
@@ -98,7 +92,6 @@ plot_data_leduc <- full_join(leduc_imputed_data, leduc_unimputed_data) %>%
   )
 
 ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`)) +
-  
   # Points
   geom_jitter(
     aes(color = Point_Color, group = `Data Type`),
@@ -106,7 +99,6 @@ ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`))
     alpha = 0.5,
     size = 2
   ) +
-  
   # Error bars
   stat_summary(
     aes(color = Summary_Color, group = `Data Type`),
@@ -116,7 +108,6 @@ ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`))
     width = 0.2,
     size = 1
   ) +
-  
   # Mean points
   stat_summary(
     aes(color = Summary_Color, group = `Data Type`),
@@ -124,7 +115,6 @@ ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`))
     geom = "point",
     size = 4
   ) +
-  
   # Mean lines
   stat_summary(
     aes(color = Summary_Color, group = `Data Type`),
@@ -132,15 +122,13 @@ ggplot(plot_data_leduc, aes(x = `Samples per Class`, y = `Validation Accuracy`))
     geom = "line",
     size = 1
   ) +
-  
-  # Identity scale (use the colors as-is)
+  # Identity scale
   scale_color_identity(
     name = "Data Type", 
     breaks = c("#BF5B17", "#018571"), 
     labels = c("Imputed", "Unimputed"), 
     guide = "legend"
   ) +
-  
   theme_bw(base_size = 18) +
   ylim(c(0, 1.05)) + 
   labs(x = "Total Samples per Class\n(before Splitting for FS [30%] and Train/Test [70%])", 
