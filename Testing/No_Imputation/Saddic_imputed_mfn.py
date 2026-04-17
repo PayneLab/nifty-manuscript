@@ -11,8 +11,8 @@ script_path = os.path.abspath(__file__)
 script_directory = os.path.dirname(script_path)
 
 # input files
-quant_file = os.path.join(script_directory, os.pardir, os.pardir, 'Data_Prep', 'Saddic_Parker_2025', 'NIFty_Ready_Data', 'quant_imputed_mfn.tsv')
-quant_file = os.path.join(script_directory, os.pardir, os.pardir, 'Data_Prep', 'Saddic_Parker_2025', 'NIFty_Ready_Data', 'meta_mfn.tsv')
+quant_file = os.path.join(script_directory, os.pardir, os.pardir, 'Data_Prep', 'Saddic_Parker_2026', 'NIFty_Ready_Data', 'quant_imputed_mfn.tsv')
+quant_file = os.path.join(script_directory, os.pardir, os.pardir, 'Data_Prep', 'Saddic_Parker_2026', 'NIFty_Ready_Data', 'meta_mfn.tsv')
 
 quant_table = pd.read_csv(quant_file, sep='\t')
 meta_table = pd.read_csv(meta_file, sep='\t')
@@ -31,6 +31,9 @@ num_samples_per_class_validation = 50
 
 # create the directories for files information
 main_output_dir = os.path.join(script_directory, 'Test_Saddic_Imputed_MFN')
+if not os.path.exists(main_output_dir):
+    os.mkdir(main_output_dir)
+    
 fs_output_dir = os.path.join(main_output_dir, "FS_Datasets")
 if not os.path.exists(fs_output_dir):
     os.mkdir(fs_output_dir)
