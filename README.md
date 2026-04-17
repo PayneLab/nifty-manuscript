@@ -83,7 +83,7 @@ To recreate the results for testing on multiclass data, do the following:
 
 
 ## Figures and Tables
-You need to have completed the `Data Prep` and `Testing` sections before continuing.
+You ***do not*** need to have completed the `Data Prep` and `Testing` sections before continuing.
 
 To recreate Figures 3, 4, and 6 and Table 1 found in the manuscript, do the following:
 
