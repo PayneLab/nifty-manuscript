@@ -71,7 +71,7 @@ ggplot(plot_data, aes(x = `Test Category`, y = Average_Accuracy)) +
   ylim(c(0, 1.05)) + 
   labs(x = "Number of Batches in FS and Model Training", y = "Average Validation Accuracy")
 
-ggsave("Fig4.png", width = 10, height = 6, units = "in", dpi = 600)
+ggsave("Fig5.png", width = 10, height = 6, units = "in", dpi = 600)
 
 
 
