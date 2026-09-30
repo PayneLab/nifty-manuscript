@@ -53,7 +53,7 @@ for output_path in output_paths:
             test_info = subdir.split("_")
             dataset.append(test_info[0])
             data_missingness.append(test_info[1])
-            if test_info[0] == "Furtwaengler":
+            if test_info[0] == "Furtwaengler" or test_info[0] == "Saddic":
                 cell_types.append(test_info[2])
                 num_samples_per_class.append(int(test_info[3].replace("Split", "")))
                 test_num.append(int(test_info[4].replace("Test", "")))
