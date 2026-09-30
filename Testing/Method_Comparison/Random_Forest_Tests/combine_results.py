@@ -76,7 +76,7 @@ for output_path in output_paths:
 
         break
 
-final_output_path = os.path.join(script_directory, "combined_results.tsv")
+final_output_path = os.path.join(script_directory, "combined_results_random_forest.tsv")
 print(f"Saving final output to: {final_output_path}")
 final_output = pd.DataFrame({
     'Dataset': dataset, 
