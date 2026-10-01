@@ -66,6 +66,100 @@ To recreate the results for testing on incomplete data, do the following:
 
 5. Run `combine_results.py` (this will replace `combined_results.tsv` with your results).
 
+### Method Comparison
+To recreate the results for comparing NIFty with traditional classification methods, do the following:
+
+1. Ensure you have the following python packages installed in your environment:
+    * pandas
+    * numpy
+    * tomllib
+    * sklearn
+2. Download [NIFty](https://github.com/PayneLab/nifty/) and install the dependencies as described in the documentation.
+3. Navigate to `Testing/Method_Comparison/Random_Forest_Tests/` and run the following python files:
+    * `Ai_imputed.py`
+    * `Ai_unimputed.py`
+    * `Furtwaengler_imputed_HSCxEarlyEryth.py`
+    * `Furtwaengler_imputed_HSCxEMP.py`
+    * `Furtwaengler_unimputed_HSCxEarlyEryth.py`
+    * `Furtwaengler_unimputed_HSCxEMP.py`
+    * `Khan_imputed.py`
+    * `Khan_unimputed.py`
+    * `Leduc_imputed.py`
+    * `Leduc_unimputed.py`
+    * `Montalvo_imputed.py`
+    * `Montalvo_unimputed.py`
+    * `Petrosius_imputed.py`
+    * `Petrosius_unimputed.py`
+    * `Saddic_imputed_fibro.py`
+    * `Saddic_unimputed_fibro.py`
+    * `Saddic_imputed_mfn.py`
+    * `Saddic_unimputed_mfn.py`
+    * `Saddic_imputed_smc.py`
+    * `Saddic_unimputed_smc.py`
+    * `Saddic_imputed_wt.py`
+    * `Saddic_unimputed_wt.py`
+4. For each configuration file created (found in `Testing/Method_Comparison/Random_Forest_Tests/Test_{Dataset Identifier}/Config_Files`), run the following command from the `Testing/Method_Comparison/Random_Forest_Tests/` directory:
+
+    `python train_model.py <path to config file>`
+
+5. Run `combine_results.py` (this will replace `combined_results_random_forest.tsv` with your results).
+6. Navigate to `Testing/Method_Comparison/SVM_Tests/` and run the following python files:
+    * `Ai_imputed.py`
+    * `Ai_unimputed.py`
+    * `Furtwaengler_imputed_HSCxEarlyEryth.py`
+    * `Furtwaengler_imputed_HSCxEMP.py`
+    * `Furtwaengler_unimputed_HSCxEarlyEryth.py`
+    * `Furtwaengler_unimputed_HSCxEMP.py`
+    * `Khan_imputed.py`
+    * `Khan_unimputed.py`
+    * `Leduc_imputed.py`
+    * `Leduc_unimputed.py`
+    * `Montalvo_imputed.py`
+    * `Montalvo_unimputed.py`
+    * `Petrosius_imputed.py`
+    * `Petrosius_unimputed.py`
+    * `Saddic_imputed_fibro.py`
+    * `Saddic_unimputed_fibro.py`
+    * `Saddic_imputed_mfn.py`
+    * `Saddic_unimputed_mfn.py`
+    * `Saddic_imputed_smc.py`
+    * `Saddic_unimputed_smc.py`
+    * `Saddic_imputed_wt.py`
+    * `Saddic_unimputed_wt.py`
+7. For each configuration file created (found in `Testing/Method_Comparison/SVM_Tests/Test_{Dataset Identifier}/Config_Files`), run the following command from the `Testing/Method_Comparison/SVM_Tests/` directory:
+
+    `python train_model.py <path to config file>`
+
+8. Run `combine_results.py` (this will replace `combined_results_svm.tsv` with your results).
+9. Navigate to `Testing/Method_Comparison/NIFty_SVM_Tests/` and run the following python files:
+    * `Ai_imputed.py`
+    * `Ai_unimputed.py`
+    * `Furtwaengler_imputed_HSCxEarlyEryth.py`
+    * `Furtwaengler_imputed_HSCxEMP.py`
+    * `Furtwaengler_unimputed_HSCxEarlyEryth.py`
+    * `Furtwaengler_unimputed_HSCxEMP.py`
+    * `Khan_imputed.py`
+    * `Khan_unimputed.py`
+    * `Leduc_imputed.py`
+    * `Leduc_unimputed.py`
+    * `Montalvo_imputed.py`
+    * `Montalvo_unimputed.py`
+    * `Petrosius_imputed.py`
+    * `Petrosius_unimputed.py`
+    * `Saddic_imputed_fibro.py`
+    * `Saddic_unimputed_fibro.py`
+    * `Saddic_imputed_mfn.py`
+    * `Saddic_unimputed_mfn.py`
+    * `Saddic_imputed_smc.py`
+    * `Saddic_unimputed_smc.py`
+    * `Saddic_imputed_wt.py`
+    * `Saddic_unimputed_wt.py`
+10. For each configuration file created (found in `Testing/Method_Comparison/NIFty_SVM_Tests/Test_{Dataset Identifier}/Config_Files`), run the following command:
+
+    `python <path_to_local_NIFty_download>/nifty.py -c <path to config file>`
+
+11. Run `combine_results.py` (this will replace `combined_results_NIFty_SVM.tsv` with your results).
+
 ### Batch Effects
 Upcoming
 
@@ -94,8 +188,9 @@ To recreate Figures 3, 4, and 6 and Table 1 found in the manuscript, do the foll
     * ggtext
 2. Navigate to `Figures_and_Tables`. 
 3. Run the following R files:
-    * `Generate_Figure_3.R` (recreates `Fig3_Leduc.png`, `Fig3_Montalvo.png`)
-    * `Generate_Table_1.R` (recreates `Table1.tsv`)
-    * `Generate_Figure_4.R` (recreates `Fig4.png`)
-    * `Generate_Figure_6.R` (recreates `Fig6.png`)
+    * `generate_Figure_3.R` (recreates `Fig3_Leduc.png`, `Fig3_Montalvo.png`)
+    * `generate_Table_1.R` (recreates `Table1.tsv`)
+    * `generate_Figure_4.R` (recreates `Fig4.png`)
+    * `generate_Figure_5.R` (recreates `Fig5.png`)
+    * `generate_Figure_7.R` (recreates `Fig7.png`)
 
